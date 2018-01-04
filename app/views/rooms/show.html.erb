@@ -12,7 +12,7 @@
 			</div>
 
 			<div id='form-box'>
-				<%= form_for :messages, url: messages_path do |f| %>
+				<%= form_for :message, url: messages_path do |f| %>
 					<%= f.text_field :content, id: 'message_input' %>
 					<%= f.submit 'Sent Message' %>
 				<% end %>
