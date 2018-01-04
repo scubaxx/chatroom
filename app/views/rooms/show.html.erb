@@ -3,14 +3,16 @@
 	<div id='chat-container'>
 		<header> Chill Out Room</header>
 			<div id='chat-box'>
-				<div class='row'>
-					<p>This is a message sample</p>
-					<span>--author</span>
-				</div>
+				<% @messages.each do |msg| %>
+					<div class='row'>
+						<p><%= msg.content %></p>
+						<span>--<%= msg.user.name %></span>	
+					</div>
+				<% end %>	
 			</div>
 
 			<div id='form-box'>
-				<%= form_for :message do |f| %>
+				<%= form_for :messages, url: messages_path do |f| %>
 					<%= f.text_field :content, id: 'message_input' %>
 					<%= f.submit 'Sent Message' %>
 				<% end %>

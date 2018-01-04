@@ -5,6 +5,7 @@ class RoomsController < ApplicationController
 	end
 	
 	def show
+		@messages = room.messages
 	end
 
 	private
@@ -12,4 +13,9 @@ class RoomsController < ApplicationController
 	def rooms
 		@rooms ||= Room.all
 	end
+
+	def room
+		@room ||= Room.find(params[:id])
+	end
+
 end		
